@@ -11,7 +11,7 @@ public class AuthentificationPage {
     WebDriver driver;
 
     By emailInput = By.cssSelector("#email") ;
-    By password = By.cssSelector("#passwd") ;
+    By passwordSelector = By.cssSelector("#passwd") ;
     By emailCreate= By.cssSelector("#email_create") ;
     By SubmitCreate= By.cssSelector("#SubmitCreate");
     By SubmitLogin= By.cssSelector("#SubmitLogin") ;
@@ -21,13 +21,13 @@ public class AuthentificationPage {
 
         this.driver = driver;
     }
-    public void setLoginData(String loginMail, String pass){
-        driver.findElement(emailInput).sendKeys(loginMail);
-        driver.findElement(password).sendKeys(pass);
+    public void login(String email, String password){
+        driver.findElement(emailInput).sendKeys(email);
+        driver.findElement(passwordSelector).sendKeys(password);
         driver.findElement(SubmitLogin).click();
 
     }
-    public SignupPage setNewAccountMail(String newAccountMail){
+    public SignupPage NewAccount(String newAccountMail){
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(emailCreate));
         driver.findElement(emailCreate).sendKeys(newAccountMail);

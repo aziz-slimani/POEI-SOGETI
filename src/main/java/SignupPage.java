@@ -8,38 +8,65 @@ public class SignupPage {
     WebDriver driver ;
     By genderMale = By.cssSelector("#id_gender1") ;
     By genderFemale = By.cssSelector("#id_gender2") ;
-
-    By customerFirstname = By.cssSelector("#customer_firstname") ;
-    By customerLastname= By.cssSelector("#customer_lastname") ;
-    By passwd= By.cssSelector("#passwd");
-    By address1= By.cssSelector("#address1") ;
-    By city= By.cssSelector("#city") ;
+    By firstnameSelector = By.cssSelector("#customer_firstname") ;
+    By lastnameSelector= By.cssSelector("#customer_lastname") ;
+    By passwordSelector= By.cssSelector("#passwd");
+    By addressSelector= By.cssSelector("#address1") ;
+    By citySelector= By.cssSelector("#city") ;
     By drpState = By.cssSelector("#id_state") ;
     By postcode = By.cssSelector("#postcode") ;
-    By phoneMobile = By.cssSelector("#phone_mobile") ;
-    By alias = By.cssSelector("#alias") ;
+    By phonenumberSelector = By.cssSelector("#phone_mobile") ;
+    By aliasSelector = By.cssSelector("#alias") ;
     By submitAccount =By.cssSelector("#submitAccount") ;
 
     public SignupPage(WebDriver driver) {
 
         this.driver = driver;
     }
-    public void fillForm(String customerFirstname, String customerLastname, String passwd  ) {
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(this.customerFirstname));
-        driver.findElement(genderMale).click();
-        driver.findElement(this.customerFirstname).sendKeys(customerFirstname);
-        driver.findElement(this.customerLastname).sendKeys(customerLastname);
-        driver.findElement(this.passwd).sendKeys("000000");
-        driver.findElement(address1).sendKeys("3 rue de vendome");
-        driver.findElement(city).sendKeys("orleans");
-        driver.findElement(postcode).sendKeys("45100");
-        driver.findElement(phoneMobile).sendKeys("0762630751");
-        driver.findElement(alias).sendKeys("main residence");
-        Select drpCountry = new Select(driver.findElement(drpState));
-        drpCountry.selectByVisibleText("California");
-        driver.findElement(submitAccount).click();
 
+    public SignupPage enterFirstName (String firstName){
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(firstnameSelector));
+        driver.findElement(firstnameSelector).sendKeys(firstName);
+        return this ;
     }
+    public SignupPage enterLastName (String lastName){
+        driver.findElement(lastnameSelector).sendKeys(lastName);
+        return this ;
+    }
+    public SignupPage enterPassword (String password){
+        driver.findElement(passwordSelector).sendKeys(password);
+        return this ;
+    }
+    public SignupPage enterAdress (String adress){
+        driver.findElement(addressSelector).sendKeys(adress);
+        return this ;
+    }
+    public SignupPage enterCity (String city){
+        driver.findElement(citySelector).sendKeys(city);
+        return this ;
+    }
+    public SignupPage enterPostCode (String postCode){
+        driver.findElement(passwordSelector).sendKeys(postCode);
+        return this ;
+    }
+    public SignupPage enterphonenumber (String phoneNumber){
+        driver.findElement(phonenumberSelector).sendKeys(phoneNumber);
+        return this ;
+    }
+    public SignupPage enterAlias (String alias){
+        driver.findElement(aliasSelector).sendKeys(alias);
+        return this ;
+    }
+
+    public SignupPage selectState (String stateName) {
+        Select drpCountry = new Select(driver.findElement(drpState));
+        drpCountry.selectByVisibleText(stateName);
+        return this;
+    }
+    public void validateAcountCreation(){
+        driver.findElement(submitAccount).click();
+    }
+
 
 }
