@@ -55,8 +55,6 @@ public class MyAccountPage {
     }
 
 
-<<<<<<< HEAD
+
 }
-=======
-}
->>>>>>> 27ea2e99d5d0d7b212ec13af66676e22cafc8176
+
