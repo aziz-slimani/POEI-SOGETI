@@ -26,31 +26,31 @@ public class MyAccountPage {
         driver.findElement(btnSearch).click();
     }
 
-    public void clickOnShoppingCart() {
+    public void openShoppingCart() {
         driver.findElement(ShoppingCartBtn).click();
     }
 
-    public void clickOnOrderHistoryAndDetails() {
+    public void openOrderHistoryAndDetails() {
         driver.findElement(OrderHistoryBtn).click();
     }
 
-    public void clickOnCreditSlip() {
+    public void openCreditSlip() {
         driver.findElement(CreditSlipBtn).click();
     }
 
-    public void clickOnAddresses() {
+    public void openAddresses() {
         driver.findElement(AddressesBtn).click();
     }
 
-    public void clickOnPersonalInformation() {
+    public void openInformation() {
         driver.findElement(InformationBtn).click();
     }
 
-    public void clickOnWishlists() {
+    public void openWishlists() {
         driver.findElement(WishlistsBtn).click();
     }
 
-    public void clickOnHomeBtn() {
+    public void openHomeBtn() {
         driver.findElement(HomeBtn).click();
     }
 

@@ -21,38 +21,36 @@ public class AddAddressPage {
 
 
 
-
-
-    public void fillAddress1(String address) {
+    public void enterAddress1(String address) {
         driver.findElement(InputAddress1).sendKeys(address);
     }
 
-    public void fillAddress2(String address2) {
+    public void enterAddress2(String address2) {
         driver.findElement(InputAddress2).sendKeys(address2);
     }
 
-    public void fillCity(String city) {
+    public void enterCity(String city) {
         driver.findElement(InputCity).sendKeys(city);
     }
 
-    public void chooseState(String state){
+    public void selectState(String state){
         new Select( driver.findElement(InputState)).selectByVisibleText(state);
     }
 
-    public void fillPostcode(String postCode) {
+    public void enterPostcode(String postCode) {
         driver.findElement(InputPostcode).sendKeys(postCode);
     }
 
-    public void fillPhone(String phone) {
+    public void enterPhone(String phone) {
         driver.findElement(InputPhone).sendKeys(phone);
     }
 
-    public void fillReference(String reference) {
+    public void enterReference(String reference) {
         driver.findElement(InputAlias).clear();
         driver.findElement(InputAlias).sendKeys(reference);
     }
 
-    public void clickOnSave(){
+    public void save(){
         driver.findElement(btnSave).click();
 
     }
