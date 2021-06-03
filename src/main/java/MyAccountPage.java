@@ -18,6 +18,8 @@ public class MyAccountPage {
     By InputSearch = By.id("search_query_top");
     By btnSearch = By.cssSelector("[name='submit_search']");
     By ShoppingCartBtn = By.cssSelector("[title='View my shopping cart']");
+    By FirstSuggestion = By.cssSelector(".ac_results>ul>li:nth-of-type(1)");
+
 
 
 
@@ -26,6 +28,12 @@ public class MyAccountPage {
         driver.findElement(btnSearch).click();
     }
 
+    public void searchProductsBySuggestion(String motCle) {
+
+        driver.findElement(InputSearch).sendKeys(motCle);
+        commun.GeneralFunction.waitUntilVisible(FirstSuggestion,driver);
+        driver.findElement(FirstSuggestion).click();
+    }
     public CartPage openShoppingCart() {
         driver.findElement(ShoppingCartBtn).click();
         return new CartPage(driver) ; // a verifier
