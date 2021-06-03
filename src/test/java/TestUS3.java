@@ -40,13 +40,17 @@ public class TestUS3 {
        MyAccountPage myaccount= orderHistory.backToMyAccount()
                                  .openCreditSlip()
                                  .backToMyAccount()
+                                 .openAddresses()
+                                 .backToMyAccount()
                                  .openInformation()
                                  .backToAccount();
-      WishListPage mywishlist= myaccount.openWishlists();
-      CartPage mycart= mywishlist.backToAccount()
-                                 .openShoppingCart();
-       mycart.openContactUsPage()
-             .backToHomePageByLogo();
+
+       WishListPage mywishlist= myaccount.openWishlists();
+       CartPage mycart= mywishlist.backToAccount()
+                                  .openShoppingCart();
+        mycart.openContactUsPage()
+              .backToHomePageByLogo();
+
        //Assert
         Assert.assertTrue(result.contains(expectedTitle));
         Assert.assertTrue(mywishlist.logoVerification());
