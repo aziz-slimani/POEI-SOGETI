@@ -1,3 +1,4 @@
+import commun.GeneralFunction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,16 +13,15 @@ public class TestUS3 {
 
     @BeforeMethod
     public void ouvrirChrome() {
-        driver = new ChromeDriver();
-        driver.get("http://automationpractice.com/index.php");
-        driver.manage().window().maximize();
+        GeneralFunction.ouvrirChrome();
+        driver = GeneralFunction.getWebDriver();
     }
 
 
-    //@AfterMethod
-    //public void fermerChrome() {
-       // driver.quit();
-    //}
+    @AfterMethod
+    public void fermerChrome() {
+    driver.quit();
+    }
 
     @Test
     public void accesToAllAccountElement() {
