@@ -26,37 +26,36 @@ public class TestUS3 {
     @Test
     public void accesToAllAccountElement() {
         //arrange
-        String userName = "aob102@gmail.com" ;
-        String password = "@ziZ1994";
+        String userName = "kakmenikoeu@gmail.com" ;
+        String password = "12345";
         String expectedTitle ="ORDER HISTORY" ;
         //act
     Homepage homepage = new Homepage(driver);
     OrderHistoryPage orderHistory= homepage.openSignInPage()
-            .login(userName,password)
-            .openOrderHistoryAndDetails();
+                                           .login(userName,password)
+                                           .openOrderHistoryAndDetails();
     String result =orderHistory.getTitle();
     System.out.println(result);
 
        MyAccountPage myaccount= orderHistory.backToMyAccount()
                                  .openCreditSlip()
-                                 .backToMyAccount().openAddresses().backToMyAccount()
+                                 .backToMyAccount()
+                                 .openAddresses()
+                                 .backToMyAccount()
                                  .openInformation()
                                  .backToAccount();
+
        WishListPage mywishlist= myaccount.openWishlists();
        CartPage mycart= mywishlist.backToAccount()
                                   .openShoppingCart();
         mycart.openContactUsPage()
               .backToHomePageByLogo();
+
        //Assert
         Assert.assertTrue(result.contains(expectedTitle));
         Assert.assertTrue(mywishlist.logoVerification());
         Assert.assertTrue(myaccount.logoVerification());
         Assert.assertTrue(mycart.logoVerification());
     }
-
-
-
-
-        //System.out.print(result.contains(Keyword));
 
 }
