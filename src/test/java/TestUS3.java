@@ -32,8 +32,8 @@ public class TestUS3 {
         //act
     Homepage homepage = new Homepage(driver);
     OrderHistoryPage orderHistory= homepage.openSignInPage()
-            .login(userName,password)
-            .openOrderHistoryAndDetails();
+                                           .login(userName,password)
+                                           .openOrderHistoryAndDetails();
     String result =orderHistory.getTitle();
     System.out.println(result);
 
@@ -42,22 +42,16 @@ public class TestUS3 {
                                  .backToMyAccount()
                                  .openInformation()
                                  .backToAccount();
-       WishListPage mywishlist= myaccount.openWishlists();
+      WishListPage mywishlist= myaccount.openWishlists();
       CartPage mycart= mywishlist.backToAccount()
-           .openShoppingCart();
-               //women element in my account
-        mycart.openContactUsPage()
-              .backToHomePageByLogo();
+                                 .openShoppingCart();
+       mycart.openContactUsPage()
+             .backToHomePageByLogo();
        //Assert
         Assert.assertTrue(result.contains(expectedTitle));
         Assert.assertTrue(mywishlist.logoVerification());
         Assert.assertTrue(myaccount.logoVerification());
         Assert.assertTrue(mycart.logoVerification());
     }
-
-
-
-
-        //System.out.print(result.contains(Keyword));
 
 }
