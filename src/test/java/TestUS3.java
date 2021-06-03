@@ -39,13 +39,12 @@ public class TestUS3 {
 
        MyAccountPage myaccount= orderHistory.backToMyAccount()
                                  .openCreditSlip()
-                                 .backToMyAccount()
+                                 .backToMyAccount().openAddresses().backToMyAccount()
                                  .openInformation()
                                  .backToAccount();
        WishListPage mywishlist= myaccount.openWishlists();
-      CartPage mycart= mywishlist.backToAccount()
-           .openShoppingCart();
-               //women element in my account
+       CartPage mycart= mywishlist.backToAccount()
+                                  .openShoppingCart();
         mycart.openContactUsPage()
               .backToHomePageByLogo();
        //Assert
