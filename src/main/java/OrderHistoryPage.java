@@ -22,6 +22,7 @@ public class OrderHistoryPage {
     public MyAccountPage backToMyAccount() {
         List<WebElement> listArticles = driver.findElements(By.cssSelector(".icon-chevron-left"));
         listArticles.get(1).click();
+        System.out.println("Back to my account page");
         return new MyAccountPage(driver);
 
     }

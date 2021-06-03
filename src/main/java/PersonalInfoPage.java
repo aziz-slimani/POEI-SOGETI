@@ -9,8 +9,9 @@ public class PersonalInfoPage {
         this.driver = driver ;
 
     }
-    public MyAccountPage backToAccount (String email) {
+    public MyAccountPage backToAccount () {
         driver.findElement(backButtonSelector).click();
+        System.out.println("Back to account page");
         return new MyAccountPage((driver));
     }
 }
