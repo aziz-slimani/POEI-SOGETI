@@ -1,3 +1,4 @@
+import commun.GeneralFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -21,10 +22,10 @@ public class TestUS2 {
 
     @BeforeMethod
     public void ouvrirChrome() {
-    driver = new ChromeDriver();
-    driver.get("http://automationpractice.com/index.php");
-     driver.manage().window().maximize();
-     }
+        GeneralFunction.ouvrirChrome();
+        driver = GeneralFunction.getWebDriver();
+    }
+
 
 
     @AfterMethod

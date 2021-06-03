@@ -26,7 +26,7 @@ public class OrderHistoryPage {
         listArticles.get(1).click();
 
         System.out.println("Back to my account page");
-        new MyAccountPage(driver);
+       return new MyAccountPage(driver);
 
     }
 public String getTitle() {

@@ -25,7 +25,7 @@ public class GeneralFunction {
 
     public static void log(String log) {
         System.out.println(log);
-
+    }
 
     public static void ouvrirChrome() {
         driver = new ChromeDriver();

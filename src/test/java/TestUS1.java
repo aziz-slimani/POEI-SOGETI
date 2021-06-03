@@ -1,11 +1,13 @@
+import commun.GeneralFunction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class TestU1 {
+public class TestUS1 {
     WebDriver driver;
-   public String email ="nabilkeou3@gmail.com";
+   public String email ="nabilkeou4@gmail.com";
     public String firstName = "nouha";
     public String lastName = "stephane";
     //public String email = "nouha@gmail.com";
@@ -21,9 +23,12 @@ public class TestU1 {
     public String addressAlias = "nabil@gmail.com";
     @BeforeMethod
     public void ouvrirChrome() {
-        driver = new ChromeDriver();
-        driver.get("http://automationpractice.com/index.php");
-        driver.manage().window().maximize();
+        GeneralFunction.ouvrirChrome();
+        driver = GeneralFunction.getWebDriver();
+    }
+    @AfterMethod
+    public void fermerChrome() {
+        driver.quit();
     }
 
     @Test

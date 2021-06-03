@@ -59,7 +59,7 @@ public class MyAccountPage {
 
     }
 
-    public MyAddresses openMyAresses() {
+    public MyAddresses openAddresses() {
         commun.GeneralFunction.waitUntilIsClickable(AddressesBtn,driver);
         driver.findElement(AddressesBtn).click();
         return new MyAddresses(driver) ;
