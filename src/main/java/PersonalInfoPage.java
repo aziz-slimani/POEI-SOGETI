@@ -12,7 +12,7 @@ public class PersonalInfoPage {
     }
     public MyAccountPage backToAccount () {
         driver.findElement(backButtonSelector).click();
-        GeneralFunction.log("Account page is opened successfully");
+        System.out.println("Back to account page");
         return new MyAccountPage((driver));
     }
 }

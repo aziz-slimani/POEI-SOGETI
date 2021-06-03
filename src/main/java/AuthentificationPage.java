@@ -27,7 +27,9 @@ public class AuthentificationPage {
         return new MyAccountPage(driver);
     }
     public SignupPage NewAccount(String newAccountMail){
+
         commun.GeneralFunction.waitUntilVisible(emailCreate,driver);
+
         driver.findElement(emailCreate).sendKeys(newAccountMail);
         driver.findElement(SubmitCreate).click();
 

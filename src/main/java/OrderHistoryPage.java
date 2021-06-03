@@ -24,8 +24,9 @@ public class OrderHistoryPage {
         List<WebElement> listArticles = driver.findElements(By.cssSelector(".icon-chevron-left"));
         commun.GeneralFunction.waitUntilVisible(logo,driver);
         listArticles.get(1).click();
-        GeneralFunction.log("Account page is opened successfully");
-        return new MyAccountPage(driver);
+
+        System.out.println("Back to my account page");
+        new MyAccountPage(driver);
 
     }
 public String getTitle() {

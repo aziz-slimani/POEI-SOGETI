@@ -82,6 +82,7 @@ public class MyAccountPage {
     public Homepage openHomeBtn() {
         commun.GeneralFunction.waitUntilIsClickable(HomeBtn,driver);
         driver.findElement(HomeBtn).click();
+        System.out.println("Back to home page");
         return new Homepage(driver);
     }
 

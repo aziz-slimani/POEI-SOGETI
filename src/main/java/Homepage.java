@@ -22,9 +22,7 @@ public class Homepage {
 
 
     public AuthentificationPage openSignInPage() {
-
-
-        driver.findElement(SignIn).click();
+       driver.findElement(SignIn).click();
         return new AuthentificationPage(driver);
     }
 
