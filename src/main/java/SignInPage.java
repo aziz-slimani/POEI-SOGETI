@@ -9,7 +9,7 @@ public class SignInPage {
     WebDriver driver;
     By emailInput = By.id("email_create");
     By authentifiateButtom = By.id("SubmitCreate");
-    public void fillEmail (String email) {
+    public void enterEmail (String email) {
 
         driver.findElement(emailInput).sendKeys(email);
         driver.findElement(authentifiateButtom).click();

@@ -11,7 +11,7 @@ public class UpdateAddressPage {
 
     By InputReference = By.id("alias");
     By btnSave = By.id("submitAddress");
-<<<<<<< HEAD
+
     By InputAddress = By.id("address");
     By InputCity = By.id("city");
     By InputPostcode = By.id("postcode");
@@ -40,14 +40,3 @@ public class UpdateAddressPage {
 
     }
 }
-=======
-
-
-
-
-    public void updateReference(String motCle) {
-        driver.findElement(InputReference).sendKeys(motCle);
-        driver.findElement(btnSave).click();
-    }
-}
->>>>>>> 27ea2e99d5d0d7b212ec13af66676e22cafc8176

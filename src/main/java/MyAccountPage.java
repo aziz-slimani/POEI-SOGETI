@@ -26,32 +26,40 @@ public class MyAccountPage {
         driver.findElement(btnSearch).click();
     }
 
-    public void openShoppingCart() {
+    public CartPage openShoppingCart() {
         driver.findElement(ShoppingCartBtn).click();
+        return new CartPage(driver) ; // a verifier
     }
 
-    public void openOrderHistoryAndDetails() {
+    public OrderHistoryPage openOrderHistoryAndDetails() {
         driver.findElement(OrderHistoryBtn).click();
+        return new OrderHistoryPage(driver) ;
     }
 
-    public void openCreditSlip() {
+    public creditSlipsPage openCreditSlip() {
         driver.findElement(CreditSlipBtn).click();
+        return new creditSlipsPage(driver) ;
+
     }
 
-    public void openAddresses() {
+    public MyAddresses openAddresses() {
         driver.findElement(AddressesBtn).click();
+        return new MyAddresses(driver) ;
     }
 
-    public void openInformation() {
+    public PersonalInfoPage openInformation() {
         driver.findElement(InformationBtn).click();
+        return new PersonalInfoPage(driver);
     }
 
-    public void openWishlists() {
+    public WishListPage openWishlists() {
         driver.findElement(WishlistsBtn).click();
+        return new WishListPage(driver);
     }
 
-    public void openHomeBtn() {
+    public Homepage openHomeBtn() {
         driver.findElement(HomeBtn).click();
+        return new Homepage(driver);
     }
 
 
