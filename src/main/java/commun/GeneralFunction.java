@@ -20,4 +20,7 @@ public class GeneralFunction {
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+    public static void log(String log) {
+        System.out.println(log);
+    }
 }

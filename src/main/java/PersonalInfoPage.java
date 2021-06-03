@@ -1,3 +1,4 @@
+import commun.GeneralFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -9,8 +10,9 @@ public class PersonalInfoPage {
         this.driver = driver ;
 
     }
-    public MyAccountPage backToAccount (String email) {
+    public MyAccountPage backToAccount () {
         driver.findElement(backButtonSelector).click();
+        GeneralFunction.log("Account page is opened successfully");
         return new MyAccountPage((driver));
     }
 }
