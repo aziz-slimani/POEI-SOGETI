@@ -12,13 +12,15 @@ public class CartPage {
     By ContactUs = By.id("contact-link");
     By logo = By.id("header_logo");
 
-    public void openContactUsPage() {
+    public ContactUs openContactUsPage() {
 
         driver.findElement(ContactUs).click();
+        return new ContactUs((driver));
     }
 
-    public void backToHomePageByLogo() {
+    public Homepage backToHomePageByLogo() {
         driver.findElement(logo).click();
+        return new Homepage(driver);
     }
 
 

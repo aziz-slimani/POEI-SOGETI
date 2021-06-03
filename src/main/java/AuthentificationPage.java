@@ -1,10 +1,8 @@
+import commun.GeneralFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.BeforeMethod;
-
 
 
 public class AuthentificationPage {
@@ -21,15 +19,17 @@ public class AuthentificationPage {
 
         this.driver = driver;
     }
-    public void login(String email, String password){
+    public MyAccountPage login(String email, String password){
+        GeneralFunction.waitUntilVisible(emailInput,driver);
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailInput));
         driver.findElement(emailInput).sendKeys(email);
         driver.findElement(passwordSelector).sendKeys(password);
         driver.findElement(SubmitLogin).click();
-
+        return new MyAccountPage(driver);
     }
     public SignupPage NewAccount(String newAccountMail){
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(emailCreate));
+       // commun.GeneralFunction.waitUntilVisible(emailInput,driver);
         driver.findElement(emailCreate).sendKeys(newAccountMail);
         driver.findElement(SubmitCreate).click();
 

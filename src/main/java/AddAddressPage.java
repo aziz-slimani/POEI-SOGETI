@@ -21,37 +21,45 @@ public class AddAddressPage {
 
 
 
-    public void enterAddress1(String address) {
+    public AddAddressPage enterAddress1(String address) {
         driver.findElement(InputAddress1).sendKeys(address);
+        return this;
     }
 
-    public void enterAddress2(String address2) {
+    public AddAddressPage enterAddress2(String address2) {
         driver.findElement(InputAddress2).sendKeys(address2);
+        return this;
     }
 
-    public void enterCity(String city) {
+    public AddAddressPage enterCity(String city) {
         driver.findElement(InputCity).sendKeys(city);
+        return this;
     }
 
-    public void selectState(String state){
+    public AddAddressPage selectState(String state){
         new Select( driver.findElement(InputState)).selectByVisibleText(state);
+        return this;
     }
 
-    public void enterPostcode(String postCode) {
+    public AddAddressPage enterPostcode(String postCode) {
         driver.findElement(InputPostcode).sendKeys(postCode);
+        return this;
     }
 
-    public void enterPhone(String phone) {
+    public AddAddressPage enterPhone(String phone) {
         driver.findElement(InputPhone).sendKeys(phone);
+        return this;
     }
 
-    public void enterReference(String reference) {
+    public AddAddressPage enterReference(String reference) {
         driver.findElement(InputAlias).clear();
         driver.findElement(InputAlias).sendKeys(reference);
+        return this;
     }
 
-    public void save(){
+    public MyAddresses save(){
         driver.findElement(btnSave).click();
+        return new MyAddresses(driver) ;
 
     }
 

@@ -20,10 +20,11 @@ public class Homepage {
     By logoelement = By.cssSelector(".logo.img-responsive");
 
 
-    public void openSignInPage() {
+    public AuthentificationPage openSignInPage() {
 
 
         driver.findElement(SignIn).click();
+        return new AuthentificationPage(driver);
     }
 
     public void searchArticles ( String articleToSearch){

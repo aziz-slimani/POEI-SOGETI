@@ -5,8 +5,13 @@ public class WishListPage {
 
     WebDriver driver;
     By backButtonSelector = By.cssSelector("#block_top_menu > ul >li:nth-of-type(1)");
-    public void backToAccount (String email) {
+    public WishListPage(WebDriver driver){
+        this.driver = driver ;
+
+    }
+    public MyAccountPage backToAccount () {
         driver.findElement(backButtonSelector).click();
+        return new MyAccountPage(driver);
 
     }
 }

@@ -12,10 +12,11 @@ public class ContactUs {
     }
     By headerLogoSelector =By.cssSelector("#header_logo >a>img");
 
-    public void backToHomePageByLogo(){
+    public Homepage backToHomePageByLogo(){
         wait= new WebDriverWait(driver,50);
         wait.until(ExpectedConditions.elementToBeClickable(headerLogoSelector));
         driver.findElement(headerLogoSelector).click();
+        return new Homepage((driver));
     }
 
 

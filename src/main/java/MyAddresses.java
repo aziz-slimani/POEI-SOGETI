@@ -12,22 +12,22 @@ public class MyAddresses {
     public MyAddresses(WebDriver driver){
         this.driver=driver;
     }
-    public void addAddress(){
+    public AddAddressPage addAddress(){
         driver.findElement(addAddress).click();
         System.out.println("You just added an address");
-return;
+return  new AddAddressPage(driver);
 }
 
-public void updateAddress(){
+public UpdateAddressPage updateAddress(){
 deleteUpdateList.get(1).click();
 System.out.println("Your address have been updated");
-return;
+return new UpdateAddressPage(driver);
 }
 
-public void deleteAddress(){
+public MyAddresses deleteAddress(){
 deleteUpdateList.get(2).click();
 System.out.println("You just deleted an address");
-return;
+return this;
 }
 
 
