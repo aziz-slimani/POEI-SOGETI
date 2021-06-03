@@ -26,7 +26,7 @@ public class TestUS3 {
     @Test
     public void accesToAllAccountElement() {
         //arrange
-        String userName = "kakmenikoeu@gmail.com" ;
+        String userName = "assoulaimani.abdelaziz@gmail.com" ;
         String password = "12345";
         String expectedTitle ="ORDER HISTORY" ;
         //act
