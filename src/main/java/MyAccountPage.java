@@ -21,6 +21,9 @@ public class MyAccountPage {
     By btnSearch = By.cssSelector("[name='submit_search']");
     By ShoppingCartBtn = By.cssSelector("[title='View my shopping cart']");
     By Logo = By.cssSelector("#header_logo") ;
+    By FirstSuggestion = By.cssSelector(".ac_results>ul>li:nth-of-type(1)");
+
+
 
 
 
@@ -29,6 +32,12 @@ public class MyAccountPage {
         driver.findElement(btnSearch).click();
     }
 
+    public void searchProductsBySuggestion(String motCle) {
+
+        driver.findElement(InputSearch).sendKeys(motCle);
+        commun.GeneralFunction.waitUntilVisible(FirstSuggestion,driver);
+        driver.findElement(FirstSuggestion).click();
+    }
     public CartPage openShoppingCart() {
         driver.findElement(ShoppingCartBtn).click();
         GeneralFunction.log("Cart page is opened successfully");
