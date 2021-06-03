@@ -21,15 +21,15 @@ public class AuthentificationPage {
     }
     public MyAccountPage login(String email, String password){
         GeneralFunction.waitUntilVisible(emailInput,driver);
-        WebDriverWait wait = new WebDriverWait(driver,10);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(emailInput));
         driver.findElement(emailInput).sendKeys(email);
         driver.findElement(passwordSelector).sendKeys(password);
         driver.findElement(SubmitLogin).click();
         return new MyAccountPage(driver);
     }
     public SignupPage NewAccount(String newAccountMail){
-       commun.GeneralFunction.waitUntilVisible(emailInput,driver);
+
+        commun.GeneralFunction.waitUntilVisible(emailCreate,driver);
+
         driver.findElement(emailCreate).sendKeys(newAccountMail);
         driver.findElement(SubmitCreate).click();
 

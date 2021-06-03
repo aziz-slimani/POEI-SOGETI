@@ -1,5 +1,7 @@
+import commun.GeneralFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class MyAccountPage {
 
@@ -18,6 +20,10 @@ public class MyAccountPage {
     By InputSearch = By.id("search_query_top");
     By btnSearch = By.cssSelector("[name='submit_search']");
     By ShoppingCartBtn = By.cssSelector("[title='View my shopping cart']");
+    By Logo = By.cssSelector("#header_logo") ;
+    By FirstSuggestion = By.cssSelector(".ac_results>ul>li:nth-of-type(1)");
+
+
 
 
 
@@ -26,43 +32,63 @@ public class MyAccountPage {
         driver.findElement(btnSearch).click();
     }
 
+    public void searchProductsBySuggestion(String motCle) {
+
+        driver.findElement(InputSearch).sendKeys(motCle);
+        commun.GeneralFunction.waitUntilVisible(FirstSuggestion,driver);
+        driver.findElement(FirstSuggestion).click();
+    }
     public CartPage openShoppingCart() {
         driver.findElement(ShoppingCartBtn).click();
-        return new CartPage(driver) ; // a verifier
+        GeneralFunction.log("Cart page is opened successfully");
+        return new CartPage(driver) ;
     }
 
     public OrderHistoryPage openOrderHistoryAndDetails() {
+        commun.GeneralFunction.waitUntilIsClickable(OrderHistoryBtn,driver);
         driver.findElement(OrderHistoryBtn).click();
+        GeneralFunction.log("OrderHistoryAndDetails page is opened successfully");
         return new OrderHistoryPage(driver) ;
     }
 
     public creditSlipsPage openCreditSlip() {
+        commun.GeneralFunction.waitUntilIsClickable(CreditSlipBtn,driver);
         driver.findElement(CreditSlipBtn).click();
+        GeneralFunction.log("CreditSlip page is opened successfully");
         return new creditSlipsPage(driver) ;
 
     }
 
-    public MyAddresses openAddresses() {
+    public MyAddresses openMyAresses() {
+        commun.GeneralFunction.waitUntilIsClickable(AddressesBtn,driver);
         driver.findElement(AddressesBtn).click();
         return new MyAddresses(driver) ;
     }
 
     public PersonalInfoPage openInformation() {
-        driver.findElement(InformationBtn).click();
+        commun.GeneralFunction.waitUntilIsClickable(AddressesBtn,driver);
+        driver.findElement(AddressesBtn).click();
+        GeneralFunction.log("Personal Information page is opened successfully");
         return new PersonalInfoPage(driver);
     }
 
     public WishListPage openWishlists() {
+        commun.GeneralFunction.waitUntilIsClickable(WishlistsBtn,driver);
         driver.findElement(WishlistsBtn).click();
+        GeneralFunction.log("Wishlists page is opened successfully");
         return new WishListPage(driver);
     }
 
     public Homepage openHomeBtn() {
+        commun.GeneralFunction.waitUntilIsClickable(HomeBtn,driver);
         driver.findElement(HomeBtn).click();
         System.out.println("Back to home page");
         return new Homepage(driver);
     }
 
+    public boolean logoVerification () {
+        return driver.findElement(Logo).isDisplayed();
+    }
 
 
 }

@@ -1,3 +1,4 @@
+import commun.GeneralFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -14,5 +15,6 @@ public class DetailsArticlePage {
 
     public void AddToCart() {
         driver.findElement(InputPostcode);
+        GeneralFunction.log("article is successfully added to cart");
     }
 }

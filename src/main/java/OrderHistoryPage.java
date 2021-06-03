@@ -1,3 +1,4 @@
+import commun.GeneralFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ public class OrderHistoryPage {
     }
 
     By logo = By.id("header_logo");
-
+    By title =By.cssSelector("[id='center_column']>h1");
 
     public void backToHomePageByLogo() {
         driver.findElement(logo).click();
@@ -21,12 +22,18 @@ public class OrderHistoryPage {
 
     public MyAccountPage backToMyAccount() {
         List<WebElement> listArticles = driver.findElements(By.cssSelector(".icon-chevron-left"));
+        commun.GeneralFunction.waitUntilVisible(logo,driver);
         listArticles.get(1).click();
+
         System.out.println("Back to my account page");
-        return new MyAccountPage(driver);
+        new MyAccountPage(driver);
 
     }
+public String getTitle() {
+    GeneralFunction.waitUntilVisible(title,driver);
+    return driver.findElement(title).getText();
 
+}
 
 
 }
