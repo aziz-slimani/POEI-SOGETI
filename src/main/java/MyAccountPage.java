@@ -42,7 +42,7 @@ public class MyAccountPage {
 
     }
 
-    public MyAddresses openAddresses() {
+    public MyAddresses openMyAresses() {
         driver.findElement(AddressesBtn).click();
         return new MyAddresses(driver) ;
     }

@@ -16,4 +16,8 @@ public class GeneralFunction {
         WebDriverWait wait = new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
+    public static void waitUntilIsClickable(By element, WebDriver driver){
+        WebDriverWait wait = new WebDriverWait(driver,10);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
 }
