@@ -1,5 +1,7 @@
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -16,40 +18,46 @@ public class TestUS3 {
     }
 
 
-    @AfterMethod
-    public void fermerChrome() {
-        driver.quit();
-    }
+    //@AfterMethod
+    //public void fermerChrome() {
+       // driver.quit();
+    //}
 
     @Test
     public void accesToAllAccountElement() {
-        String userName = "kakmenikoeu@gmail.com" ;
-        String password = "123456";
+        //arrange
+        String userName = "aob102@gmail.com" ;
+        String password = "@ziZ1994";
+        String expectedTitle ="ORDER HISTORY" ;
+        //act
     Homepage homepage = new Homepage(driver);
-    homepage.openSignInPage()
+    OrderHistoryPage orderHistory= homepage.openSignInPage()
             .login(userName,password)
-            .openOrderHistoryAndDetails()
-            .backToMyAccount()
-            .openCreditSlip()
-            .backToMyAccount()
-            .openWishlists() /*forgotten open myadress*/
-            .backToAccount()
-            .openShoppingCart() //women element in my account
-            .openContactUsPage()
-            .backToHomePageByLogo();
-    }
-    @Test
-    public void incorrectLogin() {
-        // Arrange
-        String userName = "kakmenikoeu@gmail.com" ;
-        String password = "123456";
-        // Act
-        Homepage homePage = new Homepage(driver);
-        homePage.openSignInPage()
-                .login("kakmenikoeu@gmail.com","12345");
+            .openOrderHistoryAndDetails();
+    String result =orderHistory.getTitle();
+    System.out.println(result);
 
-        // Asserts
-        //Assert.assertTrue(result.contains(Keyword));
-        //System.out.print(result.contains(Keyword));
+       MyAccountPage myaccount= orderHistory.backToMyAccount()
+                                 .openCreditSlip()
+                                 .backToMyAccount()
+                                 .openInformation()
+                                 .backToAccount();
+       WishListPage mywishlist= myaccount.openWishlists();
+      CartPage mycart= mywishlist.backToAccount()
+           .openShoppingCart();
+               //women element in my account
+        mycart.openContactUsPage()
+              .backToHomePageByLogo();
+       //Assert
+        Assert.assertTrue(result.contains(expectedTitle));
+        Assert.assertTrue(mywishlist.logoVerification());
+        Assert.assertTrue(myaccount.logoVerification());
+        Assert.assertTrue(mycart.logoVerification());
     }
+
+
+
+
+        //System.out.print(result.contains(Keyword));
+
 }

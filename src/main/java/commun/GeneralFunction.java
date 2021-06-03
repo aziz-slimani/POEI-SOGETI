@@ -23,6 +23,10 @@ public class GeneralFunction {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
+    public static void log(String log) {
+        System.out.println(log);
+
+
     public static void ouvrirChrome() {
         driver = new ChromeDriver();
         driver.get("http://automationpractice.com/index.php");
@@ -31,5 +35,6 @@ public class GeneralFunction {
 
     public static WebDriver getWebDriver(){
         return driver;
+
     }
 }

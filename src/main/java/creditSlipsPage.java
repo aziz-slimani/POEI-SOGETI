@@ -1,3 +1,4 @@
+import commun.GeneralFunction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -22,6 +23,7 @@ public class creditSlipsPage {
     public MyAccountPage backToMyAccount() {
         List<WebElement> listArticles = driver.findElements(By.cssSelector(".icon-chevron-left"));
         listArticles.get(1).click();
+        GeneralFunction.log("Account page is opened successfully");
         return new MyAccountPage(driver);
 
     }
