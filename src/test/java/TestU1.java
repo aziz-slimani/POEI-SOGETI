@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class TestU1 {
     WebDriver driver;
-   public String email ="stephane.keou@gmail.com";
+   public String email ="nabilkeou3@gmail.com";
     public String firstName = "nouha";
     public String lastName = "stephane";
     //public String email = "nouha@gmail.com";
@@ -64,6 +64,21 @@ public class TestU1 {
 
     }
 
+
+    @Test
+    public void TestDeleteAddresse(){
+        Homepage homepage = new Homepage(driver);
+        homepage.openSignInPage()
+                .login(email,password)
+                .openOrderHistoryAndDetails()
+                .backToMyAccount()
+                .openCreditSlip()
+                .backToMyAccount()
+                .openAddresses()
+                .deleteAddress();
+
+
+    }
 
 
 

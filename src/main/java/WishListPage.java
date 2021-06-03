@@ -22,7 +22,7 @@ public class WishListPage {
     public MyAccountPage backToMyAccount2() {
         List<WebElement> listArticles = driver.findElements(backToAccount);
         listArticles.get(1).click();
-        System.out.println("Back to my account page"); 
+        System.out.println("Back to my account page");
         return new MyAccountPage(driver);
 
     }

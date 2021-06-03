@@ -7,7 +7,8 @@ import java.util.List;
 public class MyAddresses {
     WebDriver driver;
     public static By addAddress = By.cssSelector("#center_column .clearfix>a>span");
-    public static By deleteUpdateSelector = By.cssSelector(".first_item .address_update>a>span");
+    public static By updateSelector = By.cssSelector(".last_item.item.box .icon-chevron-right.right");
+    public static By deleteSelector = By.cssSelector(".icon-remove.right");
     public static By backToAccount = By.cssSelector(".icon-chevron-left");
 
 
@@ -24,15 +25,14 @@ public class MyAddresses {
     }
 
     public UpdateAddressPage updateAddress() {
-        List<WebElement> deleteUpdateList = driver.findElements(deleteUpdateSelector);
-        deleteUpdateList.get(1).click();
+        driver.findElement(updateSelector).click();
         System.out.println("Your address have been updated");
         return new UpdateAddressPage(driver);
     }
 
     public MyAddresses deleteAddress() {
-        List<WebElement> deleteUpdateList = driver.findElements(deleteUpdateSelector);
-        deleteUpdateList.get(2).click();
+        driver.findElement(deleteSelector).click();
+        driver.switchTo().alert().accept();
         System.out.println("You just deleted an address");
         return this;
     }

@@ -59,6 +59,7 @@ public class MyAccountPage {
 
     public Homepage openHomeBtn() {
         driver.findElement(HomeBtn).click();
+        System.out.println("Back to home page");
         return new Homepage(driver);
     }
 

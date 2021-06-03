@@ -47,7 +47,7 @@ public class SignupPage {
         return this ;
     }
     public SignupPage enterPostCode (String postCode){
-        driver.findElement(passwordSelector).sendKeys(postCode);
+        driver.findElement(postcode).sendKeys(postCode);
         return this ;
     }
     public SignupPage enterphonenumber (String phoneNumber){
